@@ -5,17 +5,17 @@ class menu {
         self.idMenu = idMenu
         self.fecha = fecha
     }
-    func getIdMenu()-> Int{
+    func getIdMenu() -> Int{
         return idMenu
     }
-    func getFecha()-> String{
+    func getFecha() -> String{
         return fecha
     }
     func setIdMenu(idMenu:Int){
-        self.idMenu=idMenu
+        self.idMenu = idMenu
     }
     func setFecha(fecha:String){
-        self.fecha=fecha
+        self.fecha = fecha
     }    
 }
 class Ingrediente{
@@ -26,6 +26,9 @@ class Ingrediente{
         self.idIngrediente = idIngrediente
         self.nombreIn = nombreIn
         self.precioIn = precioIn
+    }
+    func getNombreIn() -> String{
+        return nombreIn
     }
 }
 let pollo = Ingrediente (idIngrediente:1, nombreIn:"Pollo", precioIn:500)
@@ -72,10 +75,13 @@ class Plato{
 }
 
 var sandwiches = [Plato]()
-sandwiches.append(Plato(idPlato:1, nombrePl:"El constructor sobrecargado",tipoPlato:"Sandwich",ingredientes:[(churrasco,1),(pimenton,2),(mayonesa,2)]))
+sandwiches.append(Plato(idPlato:1, nombrePl:"El constructor sobrecargado",tipoPlato:"Sandwich",ingredientes:[(Ingrediente (idIngrediente:1, nombreIn:"Pollo", precioIn:500),1),(pimenton,2),(mayonesa,2)]))
 sandwiches.append(Plato(idPlato:1, nombrePl:"La variable loca",tipoPlato:"Sandwich",ingredientes:[(pollo,1),(mechada,2),(pimenton,2)]))
 sandwiches.append(Plato(idPlato:1, nombrePl:"El harrison For",tipoPlato:"Sandwich",ingredientes:[(mechada,1),(tomate,2),(pimenton,2)]))
 
 
-println(sandwiches[0].getNombre())
-println(sandwiches[0].getIngredientes())
+println("nombre del sandiwch: "+sandwiches[0].getNombre())
+println(" --- Ingredientes -- ")
+println(sandwiches[0].ingredientes[0].ingredientes.nombreIn)
+println(sandwiches[0].ingredientes[0].ingredientes.precioIn)
+println(sandwiches[0].ingredientes[0].cantidad)
