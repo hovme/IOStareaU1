@@ -30,29 +30,30 @@ class Ingrediente{
 }
 let pollo = Ingrediente (idIngrediente:1, nombreIn:"Pollo", precioIn:500)
 let pimenton = Ingrediente (idIngrediente:2, nombreIn:"Pimenton", precioIn:200)
-let tomate= Ingrediente (idIngrediente:3, nombreIn:"Tomate", precioIn:150)
+let tomate = Ingrediente (idIngrediente:3, nombreIn:"Tomate", precioIn:150)
+let churrasco = Ingrediente (idIngrediente:4, nombreIn:"Churrasco", precioIn:600)
+let mechada = Ingrediente (idIngrediente:5, nombreIn:"Mechada", precioIn:700)
+let mayonesa = Ingrediente (idIngrediente:6, nombreIn:"Mayonesa", precioIn:100)
 
-
-class Plato: menu {
+class Plato{
     var idPlato: Int
     var nombrePl:String
     var tipoPlato:String
-    var ingrediente: [(ingediente:Ingrediente, cantidad:Int)]
+    var ingredientes: [(ingredientes:Ingrediente, cantidad:Int)]  
     
-    
-    init(idPlato:Int, nombrePl:String, tipoPlato:String, ingrediente:Array<(ingrediente:Ingrediente, cantidad:Int)>){
+    init(idPlato:Int, nombrePl:String, tipoPlato:String, ingredientes: Array<(ingredientes:Ingrediente, cantidad:Int)>){
         self.idPlato = idPlato
         self.nombrePl = nombrePl
         self.tipoPlato = tipoPlato
-        self.ingrediente = ingrediente
-        super.init()
+        self.ingredientes = ingredientes
+        //super.init()
     }
     
-    func setIdPlato (idPlato:int){
+    func setIdPlato (idPlato:Int){
         self.idPlato = idPlato
     }
     func setNombrePl (nombrePl:String){
-        self.nombrePl= nombrePl
+        self.nombrePl = nombrePl
     }
 
     func getNombre() -> String{
@@ -64,6 +65,17 @@ class Plato: menu {
     func getTipoPlato() ->String{
         return tipoPlato
     }
+    func getIngredientes() ->Array<(ingredientes:Ingrediente, cantidad:Int)>{
+        return ingredientes
+    }
+
 }
 
+var sandwiches = [Plato]()
+sandwiches.append(Plato(idPlato:1, nombrePl:"El constructor sobrecargado",tipoPlato:"Sandwich",ingredientes:[(churrasco,1),(pimenton,2),(mayonesa,2)]))
+sandwiches.append(Plato(idPlato:1, nombrePl:"La variable loca",tipoPlato:"Sandwich",ingredientes:[(pollo,1),(mechada,2),(pimenton,2)]))
+sandwiches.append(Plato(idPlato:1, nombrePl:"El harrison For",tipoPlato:"Sandwich",ingredientes:[(mechada,1),(tomate,2),(pimenton,2)]))
 
+
+println(sandwiches[0].getNombre())
+println(sandwiches[0].getIngredientes())
